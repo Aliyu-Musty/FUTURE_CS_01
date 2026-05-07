@@ -1,1 +1,33 @@
+## nmap port scan
+PORT    STATE SERVICE
+80/tcp  open  http
+3306/tcp open  mysql
+8080/tcp open  http-proxy
+
+## Nmap Vulnerability Scan
+--privileged --script vuln -oN nmap_vulns.txt localhost
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000040s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 997 closed tcp ports (reset)
+PORT     STATE SERVICE
+80/tcp   open  http
+| http-cross-domain-policy: 
+|   VULNERABLE:
+|   Cross-domain and Client Access policies.
+|     State: VULNERABLE
+|       A cross-domain policy file specifies the permissions that a web client such as Java, Adobe Flash, Adobe Reader,
+|       etc. use to access data across different domains. A client acces policy file is similar to cross-domain policy
+|       but is used for M$ Silverlight applications. Overly permissive configurations enables Cross-site Request
+|       Forgery attacks, and may allow third parties to access sensitive data meant for the user.
+|     Check results:
+|       /crossdomain.xml:
+|         <?xml version="1.0"?>
+|         <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+|         <cross-domain-policy>
+|           <allow-access-from domain="*" />
+|         </cross-domain-policy>
+|     Extra information:
+|       Trusted domains:*
+
 
