@@ -1,1 +1,10 @@
+##Zap-Alert
+OWASP ZAP Alerts (Passive Scan):
 
+1. Missing Anti-clickjacking Header (Medium)
+2. Cookie without SameSite Attribute (Low-Medium)
+3. Server Leaks Version Information (Low)
+4. X-Content-Type-Options Header Missing (Low)
+5. Content Security Policy (CSP) Not Set (Medium)
+6. Directory Browsing (Medium)
+7. Application Error Disclosure (Low)
